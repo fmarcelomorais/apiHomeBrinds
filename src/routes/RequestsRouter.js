@@ -3,7 +3,7 @@ const rota = require('express').Router()
 const RequesteController = require('../controller/RequestControll')
 
 
-rota.post('/adicionar', RequesteController.createRequest)
+rota.post('/register', RequesteController.createRequest)
 rota.get('/', RequesteController.requestsAll)
 
 
