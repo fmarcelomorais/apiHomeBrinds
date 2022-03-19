@@ -9,28 +9,52 @@ module.exports = class ProductController {
             price
         } = req.body
 
+
+        if(name === ""){
+            res.status(400).json({message: 'Nome do produto obrigatório'})
+        }
+        if(price === ""){
+            res.status(400).json({message: 'Preço do produto obrigatório'})
+        }
+
         const product = new Product({
             name,
             price
         })
 
-        await product.save()
-
-        res.status(201).json(product)
+        try {
+            await product.save()
+            res.status(201).json(product)
+            
+        } catch (error) {
+            res.status(400).json({message: error.message})
+        }
     }
 
     static async productsAll(req, res){
 
-        const products = await Product.find()
+        try {
+            
+            const products = await Product.find()
+            res.status(200).json(products)
 
-        res.status(200).json(products)
+        } catch (error) {
+
+            res.status(400).json({message: error.message})
+        }
     }
 
     static async productById(req, res){
         const _id = req.params._id
 
-        const product = await Product.findById(_id)
+        try {
 
-        res.status(200).json(product)
+            const product = await Product.findById(_id)
+            res.status(200).json(product)
+            
+        } catch (error) {
+            
+            res.status(400).json({message: error.message})
+        }
     }
 }
