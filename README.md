@@ -14,11 +14,11 @@
 
 
 ### POST
-> .
-> /clients/register
-> /products/register
-> /requests/register
-> .
+
+- /clients/register
+- /products/register
+- /requests/register
+
 
 ### Tecnologias ultilizadas
 
