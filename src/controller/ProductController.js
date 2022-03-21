@@ -2,7 +2,7 @@ const Product = require('../model/ProductModel')
 
 module.exports = class ProductController {
 
-    static async register(req, res) {
+    static async createProduct(req, res) {
 
         const { 
             name,
@@ -54,6 +54,35 @@ module.exports = class ProductController {
             
         } catch (error) {
             
+            res.status(400).json({message: error.message})
+        }
+    }
+
+    static async updateProduct(req, res){
+        const _id = req.params._id
+
+        const {name, price} = req.body
+
+        const product = {
+            name,
+            price
+        }
+
+        try {
+            await Product.findByIdAndUpdate(_id, product)
+            res.status(200).json({message: 'produto alterado com sucesso.'})
+        } catch (error) {
+            res.status(400).json({message: error.message})
+        }
+    }
+
+    static async deleteProduct(req, res){
+        const _id = req.params._id
+
+        try {
+            Product.findByIdAndDelete(_id).exec()
+            res.status(200).json({message: 'Excluido com sucesso.'})
+        } catch (error) {
             res.status(400).json({message: error.message})
         }
     }

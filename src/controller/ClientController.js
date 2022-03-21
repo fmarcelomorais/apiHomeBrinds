@@ -2,7 +2,7 @@ const Client = require('../model/ClientModel')
 
 module.exports = class ClientController {
 
-    static async register(req, res){
+    static async createClient(req, res){
 
         const {
             name,
@@ -81,8 +81,8 @@ module.exports = class ClientController {
         }
 
     }
-
-    static async delete(req, res){
+    
+    static async deleteClient(req, res){
 
         const _id = req.params._id
 
@@ -98,3 +98,5 @@ module.exports = class ClientController {
     }
 
 }
+
+// Controller Clients ok
