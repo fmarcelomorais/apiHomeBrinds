@@ -1,6 +1,6 @@
 const rota = require('express').Router()
 
-const RequesteController = require('../controller/RequestControll')
+const RequesteController = require('../controller/RequestController')
 
 
 rota.get('/', RequesteController.requestsAll)

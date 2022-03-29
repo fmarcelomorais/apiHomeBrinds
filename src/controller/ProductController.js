@@ -12,9 +12,11 @@ module.exports = class ProductController {
 
         if(name === ""){
             res.status(400).json({message: 'Nome do produto obrigatório'})
+            return
         }
         if(price === ""){
             res.status(400).json({message: 'Preço do produto obrigatório'})
+            return
         }
 
         const product = new Product({

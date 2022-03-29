@@ -8,24 +8,31 @@ module.exports = class RequesteController {
 
         if(dateRequest === ""){
             res.status(400).json({message: 'Data da entrega é obrigatório'})
+            return
         }
         if(products.length < 1){
             res.status(400).json({message: 'Produtos é obrigatório'})
+            return
         }
         if(entrance === ""){
             res.status(400).json({message: 'Entrada é obrigatório'})
+            return
         }
         if(total === ""){
             res.status(400).json({message: 'Total do pedido é obrigatório'})
+            return
         }
         if(payment === ""){
             res.status(400).json({message: 'Forma de pagamento é obrigatório'})
+            return
         }
         if(delivery === ""){
             res.status(400).json({message: 'Tipo de entrega é obrigatório'})
+            return
         }
         if(status === ""){
             res.status(400).json({message: 'Status do pedido é obrigatório'})
+            return
         }
 
 

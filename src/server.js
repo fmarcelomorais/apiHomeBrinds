@@ -2,9 +2,6 @@ const express = require('express')
 
 const app = express()
 
-// conexao com o banco
-//const connection = require('./src/db/connection')
-
 // Rotas
 const clientRouter = require('./routes/ClientRouter')
 const productRouter = require('./routes/ProductRouter')
